@@ -20,6 +20,7 @@ type Msg struct {
 
 }
 */
+
 func main(){
   var id string
   flag.StringVar(&id, "id", "", "id of this peer")
@@ -110,13 +111,16 @@ func main(){
   helloRx := make(chan Msg)
   // ... and start the transmitter/receiver pair on some port
   // These functions can take any number of channels! It is also possible to
+  orderMatrix := make(chan [2][4]orderFsm.OrderUpdate())
+
+
   //  start multiple transmitters/receivers on the same port.
-  go bcast.Transmitter(10252, helloTx)
+  go bcast.Transmitter(10252, orderMatrix)
   go bcast.Receiver(10252, helloRx)
 
   // The example message. We just send one of these every second.
 
-  orderMatrix := make(chan [2][4]orderFsm.OrderUpdate{})
+  //orderMatrix := make(chan [2][4]orderFsm.OrderUpdate())
 
   for{
 
@@ -130,7 +134,7 @@ func main(){
 
       case a := <-helloRx:
         fmt.Printf("Received: %#v\n", a)
-      
+
 
       case button:= <- drv_buttons:
         if(button.ButtonType != 2){

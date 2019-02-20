@@ -33,4 +33,5 @@ type Elevator struct{
 
 //func elevator_uninitialized() Elevator{
 
-//}
+//
+}
