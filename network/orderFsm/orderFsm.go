@@ -14,6 +14,14 @@ type OrderUpdate struct {
 	IDlist[] int
 }
 
+
+
+for{
+	select{
+
+	}
+}
+
 /*
 orderMatrix := make(chan [2][4]orderFsm.OrderUpdate{}) //GREIT AT DENNE ER GLOBAL?????
 

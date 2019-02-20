@@ -111,7 +111,7 @@ func main(){
   helloRx := make(chan Msg)
   // ... and start the transmitter/receiver pair on some port
   // These functions can take any number of channels! It is also possible to
-  orderMatrix := make(chan [2][4]orderFsm.OrderUpdate())
+  orderMatrixTx := make(chan [2][4]orderFsm.OrderUpdate)
 
 
   //  start multiple transmitters/receivers on the same port.
@@ -121,6 +121,8 @@ func main(){
   // The example message. We just send one of these every second.
 
   //orderMatrix := make(chan [2][4]orderFsm.OrderUpdate())
+
+  orderMatrixTx <- dasuidoi
 
   for{
 
